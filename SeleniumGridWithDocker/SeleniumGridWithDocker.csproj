@@ -13,4 +13,10 @@
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="TestScripts\" />
+    <Folder Include="PageObjects\" />
+  </ItemGroup>
+
 </Project>
