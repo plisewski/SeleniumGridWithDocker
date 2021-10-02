@@ -1,0 +1,36 @@
+﻿version: "3.8"
+services:
+  selenium-hub:
+    image: selenium/hub
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+    environment:
+        GRID_MAX_SESSION: 8
+        GRID_BROWSER_TIMEOUT: 500
+
+  chrome-node:
+    image: selenium/node-chrome-debug
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      HUB_PORT_4444_TCP_ADDR: selenium-hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      NODE_MAX_SESSION: 4
+      NODE_MAX_INSTANCES: 4
+    ports:
+      - "5901:5900"      
+    
+  firefox-node:
+    image: selenium/node-firefox-debug
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      HUB_PORT_4444_TCP_ADDR: selenium-hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      NODE_MAX_SESSION: 2
+      NODE_MAX_INSTANCES: 2
+    ports:
+      - "5902:5900"
