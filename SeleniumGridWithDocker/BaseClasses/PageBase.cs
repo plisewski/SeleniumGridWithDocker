@@ -1,6 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
+using System;
+using static SeleniumGridWithDocker.Helpers.DropDownSelectionMethods;
 
 namespace SeleniumGridWithDocker.BaseClasses
 {
@@ -38,6 +41,32 @@ namespace SeleniumGridWithDocker.BaseClasses
         {
             Actions action = new Actions(Driver);
             action.MoveToElement(Driver.FindElement(webelement)).Perform();
+        }
+
+        public void SelectDropDownElement(By webelement, DropDownSelectionMethod selectionMethod, string input)
+        {
+            SelectElement select = new SelectElement(Driver.FindElement(webelement));
+
+            try
+            {
+                switch (selectionMethod)
+                {
+                    case DropDownSelectionMethod.SelectByIndex:
+                        select.SelectByIndex(Convert.ToInt32(input));
+                        break;
+                    case DropDownSelectionMethod.SelectByText:
+                        select.SelectByText(input);
+                        break;
+                    case DropDownSelectionMethod.SelectByValue:
+                        select.SelectByValue(input);
+                        break;
+                    default: break;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new NoSuchElementException($"There was an error when selecting web element.", ex);
+            }
         }
     }
 }
