@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
+using SeleniumGridWithDocker.PageObjects.Components;
 using System;
 using static SeleniumGridWithDocker.Helpers.DropDownSelectionMethods;
 
@@ -67,6 +68,11 @@ namespace SeleniumGridWithDocker.BaseClasses
             {
                 throw new NoSuchElementException($"There was an error when selecting web element.", ex);
             }
+        }
+
+        public TopNavigationComponent GetTopNavigationComponent()
+        {
+            return new TopNavigationComponent(Driver);
         }
     }
 }

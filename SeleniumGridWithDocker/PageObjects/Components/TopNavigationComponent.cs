@@ -16,7 +16,7 @@ namespace SeleniumGridWithDocker.PageObjects.Components
 
         }
 
-        public MainUserAccountPage NavigateToMainUserAccountPage()
+        public MainUserAccountPage ClickSignInLink()
         {
             ExplicitWaitWrappers.UntilElementToBeClickable(Driver, signInLink);
             ClickOnElement(signInLink);

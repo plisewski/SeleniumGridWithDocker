@@ -17,5 +17,18 @@ namespace SeleniumGridWithDocker.TestScripts
 
             Assert.That(Driver.Url, Is.EqualTo("http://automationpractice.com/index.php"));
         }
+
+        [Test]
+        public void CanNavigateToMainUserAccountPage()
+        {
+            var homePage = new HomePage(Driver);
+
+            homePage
+                .Navigate()
+                .GetTopNavigationComponent()
+                .ClickSignInLink();
+
+            Assert.That(Driver.Url, Is.EqualTo("http://automationpractice.com/index.php?controller=authentication&back=my-account"));
+        }
     }
 }
