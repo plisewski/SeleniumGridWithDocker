@@ -13,5 +13,11 @@ namespace SeleniumGridWithDocker.Helpers
             new WebDriverWait(driver, TimeSpan.FromSeconds(waitInSeconds)).
                 Until(ExpectedCondition.ElementToBeClickable(e));
         }
+
+        public static void UntilElementIsVisible(RemoteWebDriver driver, By e, int waitInSeconds = 15)
+        {
+            new WebDriverWait(driver, TimeSpan.FromSeconds(waitInSeconds)).
+                Until(ExpectedCondition.ElementIsVisible(e));
+        }
     }
 }
