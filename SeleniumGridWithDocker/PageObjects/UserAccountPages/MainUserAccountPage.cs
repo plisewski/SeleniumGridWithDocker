@@ -10,6 +10,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
         //Registration Form
         private readonly By registrationEmailTextBox = By.Id("email_create");
         private readonly By createAccountButton = By.Id("SubmitCreate");
+        private readonly By accountCreationErrorAlert = By.Id("create_account_error");
 
         //Login Form
         private readonly By loginEmailTextBox = By.Id("email");
@@ -35,6 +36,13 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             ClickOnElement(createAccountButton);
 
             return new RegistrationPage(Driver);
+        }
+
+        public bool IsAccountCreationErrorAlertDisplayed()
+        {
+            ExplicitWaitWrappers.UntilElementIsVisible(Driver, accountCreationErrorAlert);
+
+            return Driver.FindElement(accountCreationErrorAlert).Displayed;
         }
     }
 }
