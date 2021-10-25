@@ -2,6 +2,7 @@
 using SeleniumGridWithDocker.BaseClasses;
 using SeleniumGridWithDocker.PageObjects;
 using SeleniumGridWithDocker.PageObjects.UserAccountPages;
+using System;
 
 namespace SeleniumGridWithDocker.TestScripts
 {
@@ -33,6 +34,7 @@ namespace SeleniumGridWithDocker.TestScripts
                 .Navigate()
                 .GetTopNavigationComponent()
                 .ClickSignInLink()
+                .FillRegistrationEmailTextBox($"{Guid.NewGuid()}@email.com")
                 .ClickCreateAccountButton()
                 .ClickSubmitRegistrationButton();
 
