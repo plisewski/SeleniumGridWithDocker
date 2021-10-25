@@ -21,6 +21,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
         private readonly By postalCodeTextBox = By.Id("postcode");
         private readonly By mobilePhoneTextBox = By.Id("phone_mobile");
         private readonly By addressAliasTextBox = By.Id("alias");
+        private readonly By missingRequiredFieldsErrorAlert = By.CssSelector(".alert.alert-danger");
 
         private readonly By submitRegistrationFormButton = By.Id("submitAccount");
 
@@ -131,6 +132,13 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             ClickOnElement(submitRegistrationFormButton);
 
             return new DashboardLoggedUserPage(Driver);
+        }
+
+        public bool IsMissingRequiredFieldsErrorAlertDisplayed()
+        {
+            ExplicitWaitWrappers.UntilElementIsVisible(Driver, missingRequiredFieldsErrorAlert);
+
+            return Driver.FindElement(missingRequiredFieldsErrorAlert).Displayed;
         }
     }
 }

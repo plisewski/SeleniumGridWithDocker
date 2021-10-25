@@ -22,5 +22,21 @@ namespace SeleniumGridWithDocker.TestScripts
 
             Assert.That(mainUserAccountPage.IsAccountCreationErrorAlertDisplayed(), Is.True);
         }
+
+        [Test]
+        public void CanNotRegisterWithoutProvidingRequiredUserData()
+        {
+            var homePage = new HomePage(Driver);
+            var registrationPage = new RegistrationPage(Driver);
+
+            homePage
+                .Navigate()
+                .GetTopNavigationComponent()
+                .ClickSignInLink()
+                .ClickCreateAccountButton()
+                .ClickSubmitRegistrationButton();
+
+            Assert.That(registrationPage.IsMissingRequiredFieldsErrorAlertDisplayed(), Is.True);
+        }
     }
 }
