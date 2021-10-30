@@ -53,9 +53,38 @@ namespace SeleniumGridWithDocker.TestScripts
                 .Navigate()
                 .GetTopNavigationComponent()
                 .ClickSignInLink()
-                .FillRegistrationEmailTextBox("");
+                .FillRegistrationEmailTextBox("test")
+                .ClickCreateAccountButton();
 
-            //TODO add implementation for diffrent invalid email cases
+            Assert.That(mainUserAccountPage.IsAccountCreationErrorAlertDisplayed(), Is.True);
+
+            mainUserAccountPage
+                .FillRegistrationEmailTextBox("test@")
+                .ClickCreateAccountButton();
+
+            Assert.That(mainUserAccountPage.IsAccountCreationErrorAlertDisplayed(), Is.True);
+
+            mainUserAccountPage
+                .FillRegistrationEmailTextBox("test@123")
+                .ClickCreateAccountButton();
+
+            Assert.That(mainUserAccountPage.IsAccountCreationErrorAlertDisplayed(), Is.True);
+
+            mainUserAccountPage
+                .FillRegistrationEmailTextBox("test@123@com")
+                .ClickCreateAccountButton();
+
+            Assert.That(mainUserAccountPage.IsAccountCreationErrorAlertDisplayed(), Is.True);
+
+            mainUserAccountPage
+                .FillRegistrationEmailTextBox("test.test.test")
+                .ClickCreateAccountButton();
+
+            Assert.That(mainUserAccountPage.IsAccountCreationErrorAlertDisplayed(), Is.True);
+
+            mainUserAccountPage
+                .FillRegistrationEmailTextBox("test@email.com.")
+                .ClickCreateAccountButton();
 
             Assert.That(mainUserAccountPage.IsAccountCreationErrorAlertDisplayed(), Is.True);
         }
