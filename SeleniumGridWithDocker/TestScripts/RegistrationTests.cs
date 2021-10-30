@@ -9,6 +9,8 @@ namespace SeleniumGridWithDocker.TestScripts
     [TestFixture]
     class RegistrationTests : TestBase
     {
+        private string EmailAddress = $"{Guid.NewGuid()}@email.com";
+
         [Test]
         public void CanNotRegisterWithoutProvidingEmailAddress()
         {
@@ -39,6 +41,23 @@ namespace SeleniumGridWithDocker.TestScripts
                 .ClickSubmitRegistrationButton();
 
             Assert.That(registrationPage.IsMissingRequiredFieldsErrorAlertDisplayed(), Is.True);
+        }
+
+        [Test]
+        public void CanNotRegisterProvidingInvalidEmailAddress()
+        {
+            var homePage = new HomePage(Driver);
+            var mainUserAccountPage = new MainUserAccountPage(Driver);
+
+            homePage
+                .Navigate()
+                .GetTopNavigationComponent()
+                .ClickSignInLink()
+                .FillRegistrationEmailTextBox("");
+
+            //TODO add implementation for diffrent invalid email cases
+
+            Assert.That(mainUserAccountPage.IsAccountCreationErrorAlertDisplayed(), Is.True);
         }
     }
 }
