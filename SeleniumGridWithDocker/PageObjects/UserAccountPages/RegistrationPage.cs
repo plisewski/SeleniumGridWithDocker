@@ -30,7 +30,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
 
         }
 
-        public RegistrationPage FirstNamePersonalTextBox(string text)
+        public RegistrationPage FillFirstNamePersonalTextBox(string text)
         {
             ClearTextBox(firstNamePersonalTextBox);
             FillTextBox(firstNamePersonalTextBox, text);
@@ -38,7 +38,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage LastNamePersonalTextBox(string text)
+        public RegistrationPage FillLastNamePersonalTextBox(string text)
         {
             ClearTextBox(lastNamePersonalTextBox);
             FillTextBox(lastNamePersonalTextBox, text);
@@ -46,7 +46,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage EmailTextBox(string text)
+        public RegistrationPage FillEmailTextBox(string text)
         {
             ClearTextBox(emailTextBox);
             FillTextBox(emailTextBox, text);
@@ -54,7 +54,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage PasswordTextBox(string text)
+        public RegistrationPage FillPasswordTextBox(string text)
         {
             ClearTextBox(passwordTextBox);
             FillTextBox(passwordTextBox, text);
@@ -62,7 +62,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage FirstNameAddressTextBox(string text)
+        public RegistrationPage FillFirstNameAddressTextBox(string text)
         {
             ClearTextBox(firstNameAddressTextBox);
             FillTextBox(firstNameAddressTextBox, text);
@@ -70,7 +70,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage LastNameAddressTextBox(string text)
+        public RegistrationPage FillLastNameAddressTextBox(string text)
         {
             ClearTextBox(lastNameAddressTextBox);
             FillTextBox(lastNameAddressTextBox, text);
@@ -78,7 +78,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage AddressTextBox(string text)
+        public RegistrationPage FillAddressTextBox(string text)
         {
             ClearTextBox(addressTextBox);
             FillTextBox(addressTextBox, text);
@@ -86,7 +86,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage CityTextBox(string text)
+        public RegistrationPage FillCityTextBox(string text)
         {
             ClearTextBox(cityTextBox);
             FillTextBox(cityTextBox, text);
@@ -94,7 +94,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage StateTextBox(string text)
+        public RegistrationPage FillStateTextBox(string text)
         {
             ClearTextBox(stateTextBox);
             FillTextBox(stateTextBox, text);
@@ -102,7 +102,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage PostalCodeTextBox(string text)
+        public RegistrationPage FillPostalCodeTextBox(string text)
         {
             ClearTextBox(postalCodeTextBox);
             FillTextBox(postalCodeTextBox, text);
@@ -110,7 +110,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage MobilePhoneTextBox(string text)
+        public RegistrationPage FillMobilePhoneTextBox(string text)
         {
             ClearTextBox(mobilePhoneTextBox);
             FillTextBox(mobilePhoneTextBox, text);
@@ -118,7 +118,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage AddressAliasTextBox(string text)
+        public RegistrationPage FillAddressAliasTextBox(string text)
         {
             ClearTextBox(addressAliasTextBox);
             FillTextBox(addressAliasTextBox, text);
