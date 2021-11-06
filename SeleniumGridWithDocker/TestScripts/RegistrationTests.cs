@@ -88,5 +88,19 @@ namespace SeleniumGridWithDocker.TestScripts
 
             Assert.That(mainUserAccountPage.IsAccountCreationErrorAlertDisplayed(), Is.True);
         }
+
+        [Test]
+        public void CanRegisterAndGetAutomaticallyRedirectedToUserDashboard()
+        {
+            var homePage = new HomePage(Driver);
+            var registrationPage = new RegistrationPage(Driver);
+
+            homePage
+                .Navigate()
+                .GetTopNavigationComponent()
+                .ClickSignInLink()
+                .FillRegistrationEmailTextBox(EmailAddress)
+                .ClickCreateAccountButton();
+        }
     }
 }
