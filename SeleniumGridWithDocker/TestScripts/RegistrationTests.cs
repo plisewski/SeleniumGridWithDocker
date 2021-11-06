@@ -101,6 +101,18 @@ namespace SeleniumGridWithDocker.TestScripts
                 .ClickSignInLink()
                 .FillRegistrationEmailTextBox(EmailAddress)
                 .ClickCreateAccountButton();
+
+            registrationPage
+                .FillFirstNamePersonalTextBox("T1_FirstName")
+                .FillLastNamePersonalTextBox("T1_LastName")
+                .FillEmailTextBox(EmailAddress)
+                .FillPasswordTextBox("123Test!")
+                .FillFirstNameAddressTextBox("T1_FirstName")
+                .FillLastNameAddressTextBox("T1_LastName")
+                .FillAddressTextBox("T1_Address")
+                .FillCityTextBox("T1_City");
+
+            //TODO add state, postal code, country, mobile phone, address alias
         }
     }
 }
