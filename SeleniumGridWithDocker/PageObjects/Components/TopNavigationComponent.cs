@@ -8,7 +8,13 @@ namespace SeleniumGridWithDocker.PageObjects.Components
 {
     class TopNavigationComponent : PageBase
     {
+        //not looged user
         private readonly By signInLink = By.ClassName("login");
+
+        //logged user
+        private readonly By userDashboardLink = By.ClassName("account");
+        private readonly By signOutLink = By.ClassName("logout");
+
         private readonly By contactLink = By.CssSelector("#contact-link a");
 
         public TopNavigationComponent(RemoteWebDriver driver) : base(driver)
@@ -22,6 +28,13 @@ namespace SeleniumGridWithDocker.PageObjects.Components
             ClickOnElement(signInLink);
 
             return new MainUserAccountPage(Driver);
+        }
+
+        public string GetUserFirstAndLastNameFromDashboardLink()
+        {
+            ExplicitWaitWrappers.UntilElementIsVisible(Driver, userDashboardLink);
+
+            return Driver.FindElement(userDashboardLink).Text;
         }
     }
 }

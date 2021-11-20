@@ -116,6 +116,8 @@ namespace SeleniumGridWithDocker.TestScripts
                 .FillMobilePhoneTextBox("987654321")
                 .FillAddressAliasTextBox("MyAliasAddress")
                 .ClickSubmitRegistrationButton();
+
+            Assert.That(registrationPage.GetTopNavigationComponent().GetUserFirstAndLastNameFromDashboardLink(), Is.EqualTo("MyFirstName MyLastName"));
         }
     }
 }
