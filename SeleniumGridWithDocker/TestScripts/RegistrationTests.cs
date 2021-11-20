@@ -103,16 +103,19 @@ namespace SeleniumGridWithDocker.TestScripts
                 .ClickCreateAccountButton();
 
             registrationPage
-                .FillFirstNamePersonalTextBox("T1_FirstName")
-                .FillLastNamePersonalTextBox("T1_LastName")
+                .FillFirstNamePersonalTextBox("MyFirstName")
+                .FillLastNamePersonalTextBox("MyLastName")
                 .FillEmailTextBox(EmailAddress)
                 .FillPasswordTextBox("123Test!")
-                .FillFirstNameAddressTextBox("T1_FirstName")
-                .FillLastNameAddressTextBox("T1_LastName")
-                .FillAddressTextBox("T1_Address")
-                .FillCityTextBox("T1_City");
-
-            //TODO add state, postal code, country, mobile phone, address alias
+                .FillFirstNameAddressTextBox("MyFirstName")
+                .FillLastNameAddressTextBox("MyLastName")
+                .FillAddressTextBox("MyAddress")
+                .FillCityTextBox("MyCity")
+                .SelectStateDropDown(Helpers.DropDownSelectionMethods.DropDownSelectionMethod.SelectByText, "Alabama")
+                .FillPostalCodeTextBox("12345")
+                .FillMobilePhoneTextBox("987654321")
+                .FillAddressAliasTextBox("MyAliasAddress")
+                .ClickSubmitRegistrationButton();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
         private readonly By lastNameAddressTextBox = By.CssSelector("[name='lastname']");
         private readonly By addressTextBox = By.Id("address1");
         private readonly By cityTextBox = By.Id("city");
-        private readonly By stateTextBox = By.Id("uniform-id_state");
+        private readonly By stateDropDown = By.Id("id_state");
         private readonly By postalCodeTextBox = By.Id("postcode");
         private readonly By mobilePhoneTextBox = By.Id("phone_mobile");
         private readonly By addressAliasTextBox = By.Id("alias");
@@ -32,6 +32,7 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
 
         public RegistrationPage FillFirstNamePersonalTextBox(string text)
         {
+            ExplicitWaitWrappers.UntilElementToBeClickable(Driver, firstNamePersonalTextBox);
             ClearTextBox(firstNamePersonalTextBox);
             FillTextBox(firstNamePersonalTextBox, text);
 
@@ -94,10 +95,9 @@ namespace SeleniumGridWithDocker.PageObjects.UserAccountPages
             return this;
         }
 
-        public RegistrationPage FillStateTextBox(string text)
+        public RegistrationPage SelectStateDropDown(DropDownSelectionMethods.DropDownSelectionMethod dropDownSelectionMethods, string value)
         {
-            ClearTextBox(stateTextBox);
-            FillTextBox(stateTextBox, text);
+            SelectDropDownElement(stateDropDown, dropDownSelectionMethods, value);
 
             return this;
         }
